@@ -32,6 +32,7 @@
     extraLocaleSettings = {                 # Extra locale settings that need to be overwritten
       LC_TIME = "pt_BR.UTF-8";
       LC_MONETARY = "pt_BR.UTF-8";
+      LC_ALL = "pt_BR.UTF-8";
     };
   };
 
