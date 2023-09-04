@@ -13,9 +13,6 @@
       ''
         flatpaks=(
           "com.github.tchx84.Flatseal"
-          "com.moonlight_stream.Moonlight"
-          "com.obsproject.Studio"
-          "com.ultimaker.cura"
         )
 
         ${pkgs.flatpak}/bin/flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo

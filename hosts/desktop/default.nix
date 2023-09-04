@@ -23,6 +23,8 @@
     [(import ./hardware-configuration.nix)] ++            # Current system hardware config @ /etc/nixos/hardware-configuration.nix
     [(import ../../modules/desktop/bspwm/default.nix)] ++ # Window Manager
     [(import ../../modules/desktop/virtualisation/docker.nix)] ++  # Docker
+    [(import ../../modules/programs/games.nix)] ++
+    [(import ../../modules/programs/flatpak.nix)] ++
     (import ../../modules/hardware);                      # Hardware devices
 
   boot = {                                  # Boot options

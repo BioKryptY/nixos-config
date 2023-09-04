@@ -14,6 +14,7 @@
           "super + Return" = "alacritty";                       # Open Terminal
           "super + space" = "rofi -show drun";                  # Open Rofi (custom theme " -theme theme.rasi")
           "super + e" = "thunar";                                 # File Manager
+          "super + ." = "digital";
 
           "Print" = "flameshot gui";                            # Start flameshot gui
 

@@ -34,16 +34,16 @@ with host; {
             module-margin-left = 1;
             #module-margin-right = "0.5";
 
-            font-0 = "SourceCodePro:size=12";     # Icons
-            font-1 = "FontAwesome6Free:style=Solid:size=10";
-            font-2 = "FontAwesome6Free:style=Regular:size=10";
-            font-3 = "FontAwesome6Brands:style=Regular:size=10";
-            font-4 = "FiraCodeNerdFont:size=12";
+            font-0 = "SourceCodePro:size=12;2";     # Icons
+            font-1 = "FontAwesome6Free:style=Solid:size=10;2";
+            font-2 = "FontAwesome6Free:style=Regular:size=10;2";
+            font-3 = "FontAwesome6Brands:style=Regular:size=10;2";
+            font-4 = "FiraCodeNerdFont:size=12;2";
             modules-left = "logo bspwm";
             modules-right = "memory cpusink volume date"; #wired-network wireless-network bluetooth";
 
-            tray-position = "right";
-            tray-detached = "false";
+            #tray-position = "right";
+            #tray-detached = "false";
 
             #override-redirect = "true";
             wm-restack = "bspwm";
@@ -61,12 +61,12 @@ with host; {
             module-margin-left = 1;
             #module-margin-right = "0.5";
 
-            font-0 = "SourceCodePro:size=12";     # Icons
-            font-1 = "FontAwesome6Free:style=Solid:size=10";
-            font-2 = "FontAwesome6Free:style=Regular:size=10";
-            font-3 = "FontAwesome6Brands:style=Regular:size=10";
-            font-4 = "FiraCodeNerdFont:size=12";
-            modules-left = "logo bspwm";
+            font-0 = "SourceCodePro:size=12;2";     # Icons
+            font-1 = "FontAwesome6Free:style=Solid:size=10;2";
+            font-2 = "FontAwesome6Free:style=Regular:size=10;2";
+            font-3 = "FontAwesome6Brands:style=Regular:size=10;2";
+            font-4 = "FiraCodeNerdFont:size=12;2";
+            modules-left = "bspwm";
             modules-right = "sink volume pad date";
 
             #override-redirect = "true";
@@ -301,46 +301,51 @@ with host; {
 
             menu-0-0 = "";
             menu-0-0-exec = "menu-open-1";
-            menu-0-1 = "";
+            menu-0-1 = " |";
             menu-0-1-exec = "menu-open-2";
+            
 
-            menu-1-0 = "";
-            menu-1-0-exec = "sleep 0.5; bspc quit";
-            menu-1-1 = "";
-            menu-1-1-exec = "sleep 0.5; xset dpms force standby";
-            menu-1-2 = "";
-            menu-1-2-exec = "sleep 0.5; systemctl suspend";
-            menu-1-3 = "";
-            menu-1-3-exec = "sleep 0.5; systemctl poweroff";
-            menu-1-4 = "";
-            menu-1-4-exec = "sleep 0.5; systemctl reboot";
+            menu-1-0 = "";
+            menu-1-0-exec = "menu-close";
+            menu-1-1 = "";
+            menu-1-1-exec = "sleep 0.5; bspc quit";
+            menu-1-2 = "";
+            menu-1-2-exec = "sleep 0.5; xset dpms force standby";
+            menu-1-3 = "";
+            menu-1-3-exec = "sleep 0.5; systemctl suspend";
+            menu-1-4 = "";
+            menu-1-4-exec = "sleep 0.5; systemctl poweroff";
+            menu-1-5 = "";
+            menu-1-5-exec = "sleep 0.5; systemctl reboot";
 
-            menu-2-0 = "";
-            menu-2-0-exec = "alacritty &";
+            menu-2-0 = "";
+            menu-2-0-exec = "menu-close";
+            menu-2-1 = "";
+            menu-2-1-exec = "alacritty &";
             #menu-2-1 = "";
             #menu-2-1-exec = "google-chrome-stable &";
-            menu-2-1 = "";
-            menu-2-1-exec = "firefox &";
-            menu-2-2 = "";
-            menu-2-2-exec = "emacs &";
+            menu-2-2 = "";
+            menu-2-2-exec = "firefox &";
+            menu-2-3 = "";
+            menu-2-3-exec = "emacs &";
             #menu-2-3 = "";
             #menu-2-3-exec = "libreoffice &";
-            menu-2-3 = "";
-            menu-2-3-exec = "plexmediaplayer &";
+            menu-2-4 = "";
+            menu-2-4-exec = "plexmediaplayer &";
             #menu-2-5 = "";
             #menu-2-5-exec = "darktable &";
-            menu-2-4 = "";
-            menu-2-4-exec = "flatpak run com.obsproject.Studio &";
+            menu-2-5 = "";
+            menu-2-5-exec = "flatpak run com.obsproject.Studio &";
             #menu-2-7 = "";
             #menu-2-7-exec = "gimp &";
             #menu-2-8 = "";
             #menu-2-8-exec = "inkscape &";
             #menu-2-9 = "";
             #menu-2-9-exec = "kdenlive &";
-            menu-2-5 = "";
-            menu-2-5-exec = "lutris &";
-            menu-2-6 = "";
-            menu-2-6-exec = "steam &";
+            menu-2-6 = "";
+            menu-2-6-exec = "lutris &";
+            menu-2-7 = " |";
+            menu-2-7-exec = "steam &";
           };
           "module/bluetooth" = {
             type = "custom/text";

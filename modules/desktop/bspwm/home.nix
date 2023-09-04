@@ -29,6 +29,7 @@ let
     bspc config focus_follows_pointer     true
     bspc config borderless_monocle        false
     bspc config gapless_monocle           false
+    bspc config pointer_action1           move
 
     #bspc config normal_border_color  "#000000"
     #bspc config focused_border_color "#ffffff"
@@ -74,32 +75,118 @@ in
           ${secondMonitor} = [ "6" "7" "8" "9" "0" ];
         } else {};                              # Multiple Monitors
         rules = {                               # Specific rules for apps - use xprop
-          "Emacs" = {
-            desktop = "3";
-            follow = true;
-            state = "tiled";
-          };
           ".blueman-manager-wrapped" = {
             state = "floating";
             sticky = true;
+            desktop = "1";
           };
-          "libreoffice" = {
+          "Pavucontrol" = {
+            state = "floating";
+            sticky = true;
+            desktop = "1";
+          };
+          "Alacritty" = {
+            desktop = "1";
+            follow = true;
+          };
+          "gnome-calculator" = {
+            desktop = "1";
+            follow = true;
+          };
+          "Geany" = {
+            desktop = "2";
+            follow = true;
+          };
+          "codeblocks" = {
+            desktop = "2";
+            follow = true;
+          };
+          "Code" = {
+            desktop = "2";
+            follow = true;
+          };
+          "com-cburch-logisim-Main" = {
             desktop = "3";
+            follow = true;
+          };
+          "de-neemann-digital-gui-Main" = {
+            desktop = "3";
+            follow = true;
+          };
+          "Thunar" = {
+            desktop = "4";
+            follow = true;
+          };
+          "file-roller" = {
+            desktop = "4";
+            follow = true;
+          };
+          "thunar-volman-settings" = {
+            desktop = "4";
+            follow = true;
+          };
+          "steam" = {
+            desktop = "5";
             follow = true;
           };
           "Lutris" = {
             desktop = "5";
             follow = true;
           };
-          "Pavucontrol" = {
-            state = "floating";
-            sticky = true;
+          "heroic" = {
+            desktop = "5";
+            follow = true;
           };
-          "Pcmanfm" = {
-            state = "floating";
+          "PCSX2" = {
+            desktop = "5";
+            follow = true;
+          };
+          "prismlauncher" = {
+            desktop = "5";
+            follow = true;
+          };
+          "retroarch" = {
+            desktop = "5";
+            follow = true;
+          };
+          "com.github.tchx84.Flatseal" = {
+            desktop = "5";
+            follow = true;
           };
           "firefox" = {
             desktop = "6";
+            follow= true;
+          };
+          "qutebrowser" = {
+            desktop = "6";
+            follow= true;
+          };
+          "okular" = {
+            desktop = "7";
+            follow= true;
+          };
+          "libreoffice" = {
+            desktop = "7";
+            follow= true;
+          };
+          "microsoft teams - preview" = {
+            desktop = "8";
+            follow= true;
+          };
+          "zoom" = {
+            desktop = "8";
+            follow= true;
+          };
+          "obs" = {
+            desktop = "8";
+            follow= true;
+          };
+          "Spotify" = {
+            desktop = "9";
+            follow= true;
+          };
+          "discord" = {
+            desktop = "9";
             follow= true;
           };
           "*:*:Picture in picture" = {  #Google Chrome PIP
@@ -110,11 +197,15 @@ in
             state = "floating";
             sticky = true;
           };
-          "Steam" = {
-            desktop = "5";
-            #follow = true;
+          "io.github.alainm23.planify" = {
+            desktop = "10";
+            follow= true;
           };
-        };
+          "mpv" = {
+            desktop = "10";
+            follow= true;
+          };
+      };
         extraConfig = extraConf;
       };
     };

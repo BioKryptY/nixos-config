@@ -112,7 +112,7 @@
       #blueman          # Bluetooth
       #deluge           # Torrents
       discord          # Chat
-      #ffmpeg           # Video Support (dslr)
+      ffmpeg           # Video Support (dslr)
       #gmtp             # Mount MTP (GoPro)
       #gphoto2          # Digital Photography
       #handbrake        # Encoder
@@ -123,7 +123,7 @@
       #nvtop            # Videocard Top
       #plex-media-player# Media Player
       #prismlauncher    # MC Launcher
-      steam            # Games
+      #steam            # Games
       #simple-scan      # Scanning
       #sshpass          # Ansible dependency
       # 
