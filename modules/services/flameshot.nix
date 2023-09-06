@@ -15,7 +15,7 @@
             saveAsFileExtension = ".png";
             uiColor = "#2d0096";
             showHelp = "false";
-            disabledTrayIcon = "true";              # Hide from systray
+            disabledTrayIcon = "false";              # Hide from systray
           };
         };
       };

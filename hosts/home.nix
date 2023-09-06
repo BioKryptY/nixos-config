@@ -15,6 +15,7 @@
 
 { 
   imports =                                   # Home Manager Modules
+    (import ../modules/editors) ++
     (import ../modules/programs) ++
     (import ../modules/services);
 
@@ -134,6 +135,8 @@
       #libreoffice      # Office Tools
       #simple-scan      # Scanning
       #
+      delta
+      curl
       codeblocks
       logisim-evolution
       gnome.gnome-calculator
@@ -170,8 +173,6 @@
     home-manager.enable = true;
     git = {
       enable = true;
-      userName = "Lucas Fernandes";
-      userEmail = "luqinhafernandes@hotmail.com";
     };
   };
 

@@ -35,6 +35,10 @@
 
   programs = {
     alacritty.settings.font.size = 12;
+    git = {
+      userName = "Lucas Fernandes";
+      userEmail = "luqinhafernandes@hotmail.com";
+    };
   };
 
   services = {                            # Applets
