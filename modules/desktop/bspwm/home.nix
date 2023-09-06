@@ -14,10 +14,13 @@
 #       ├─ ./picom.nix
 #       ├─ ./polybar.nix
 #       └─ ./sxhkd.nix
-
-{ config, lib, pkgs, host, ... }:
-
-let
+{
+  config,
+  lib,
+  pkgs,
+  host,
+  ...
+}: let
   extra = ''
     WORKSPACES                              # Workspace tag names (need to be the same as the polybar config to work)
 
@@ -37,44 +40,61 @@ let
     #pgrep -x sxhkd > /dev/null || sxhkd &  # Not needed on NixOS
 
     feh --bg-tile $HOME/.config/wall        # Wallpaper
-    
+
     killall -q polybar &                    # Reboot polybar to correctly show workspaces
-    while pgrep -u $UID -x polybar >/dev/null; do sleep 1;done 
- 
+    while pgrep -u $UID -x polybar >/dev/null; do sleep 1;done
+
+    xsetwacom set 17 MapToOutput 1920x1080+1920+000000
+    xsetwacom set 18 MapToOutput 1920x1080+1920+000000
+    xsetwacom set 17 Area 0 0 15200 8550
+    xsetwacom set 18 Area 0 0 15200 8550
+    xsetwacom set 17 Button 2 "key F9"
+    xsetwacom set 17 Button 3 "key +shift F9 -shift"
+    xsetwacom set 18 Button 2 "key F9"
+    xsetwacom set 18 Button 3 "key +shift F9 -shift"
+
     #xsetroot -xcf /usr/share/icons/Dracula-theme/cursors/letf_ptr 16
     gromit-mpx &
     polybar main & #2>~/log &               # To lazy to figure out systemd service order
     polybar sec & #2>~/log &
   '';
 
-  extraConf = with host; builtins.replaceStrings [ "WORKSPACES" ]
-  [
-    (if hostName == "desktop" then ''
-      bspc monitor ${mainMonitor} -d 1 2 3 4 5
-      bspc monitor ${secondMonitor} -d 6 7 8 9 0
-      bspc wm -O ${mainMonitor} ${secondMonitor}
-      polybar main &
-      polybar sec &
-    ''
-    else if hostName == "laptop" || hostName == "vm" then ''
-      bspc monitor -d 1 2 3 4 5
-    ''
-    else false)
-  ]
-  "${extra}";
-in
-{
+  extraConf = with host;
+    builtins.replaceStrings ["WORKSPACES"]
+    [
+      (
+        if hostName == "desktop"
+        then ''
+          bspc monitor ${mainMonitor} -d 1 2 3 4 5
+          bspc monitor ${secondMonitor} -d 6 7 8 9 0
+          bspc wm -O ${mainMonitor} ${secondMonitor}
+          polybar main &
+          polybar sec &
+        ''
+        else if hostName == "laptop" || hostName == "vm"
+        then ''
+          bspc monitor -d 1 2 3 4 5
+        ''
+        else false
+      )
+    ]
+    "${extra}";
+in {
   xsession = {
     enable = true;
     numlock.enable = true;
     windowManager = {
       bspwm = {
         enable = true;
-        monitors = with host; if hostName == "desktop" then {
-          ${mainMonitor} = [ "1" "2" "3" "4" "5" ];
-          ${secondMonitor} = [ "6" "7" "8" "9" "0" ];
-        } else {};                              # Multiple Monitors
-        rules = {                               # Specific rules for apps - use xprop
+        monitors = with host;
+          if hostName == "desktop"
+          then {
+            ${mainMonitor} = ["1" "2" "3" "4" "5"];
+            ${secondMonitor} = ["6" "7" "8" "9" "0"];
+          }
+          else {}; # Multiple Monitors
+        rules = {
+          # Specific rules for apps - use xprop
           ".blueman-manager-wrapped" = {
             state = "floating";
             sticky = true;
@@ -113,11 +133,27 @@ in
             desktop = "3";
             follow = true;
           };
+          "Arduino IDE" = {
+            desktop = "3";
+            follow = true;
+          };
+          "Fritzing" = {
+            desktop = "3";
+            follow = true;
+          };
           "Thunar" = {
             desktop = "4";
             follow = true;
           };
           "file-roller" = {
+            desktop = "4";
+            follow = true;
+          };
+          "WxHexEditor" = {
+            desktop = "4";
+            follow = true;
+          };
+          "TelegramDesktop" = {
             desktop = "4";
             follow = true;
           };
@@ -153,59 +189,93 @@ in
             desktop = "5";
             follow = true;
           };
-          "firefox" = {
+          "Chromium-browser" = {
             desktop = "6";
-            follow= true;
+            follow = true;
           };
           "qutebrowser" = {
             desktop = "6";
-            follow= true;
+            follow = true;
+          };
+          "Postman" = {
+            desktop = "6";
+            follow = true;
           };
           "okular" = {
             desktop = "7";
-            follow= true;
+            follow = true;
           };
           "libreoffice" = {
             desktop = "7";
-            follow= true;
+            follow = true;
           };
           "microsoft teams - preview" = {
             desktop = "8";
-            follow= true;
+            follow = true;
           };
           "zoom" = {
             desktop = "8";
-            follow= true;
+            follow = true;
           };
           "obs" = {
             desktop = "8";
-            follow= true;
+            follow = true;
           };
           "Spotify" = {
             desktop = "9";
-            follow= true;
+            follow = true;
           };
           "discord" = {
             desktop = "9";
-            follow= true;
+            follow = true;
           };
-          "*:*:Picture in picture" = {  #Google Chrome PIP
+          "FreeTube" = {
+            desktop = "9";
+            follow = true;
+          };
+          "Inkscape" = {
+            desktop = "9";
+            follow = true;
+          };
+          "krita" = {
+            desktop = "9";
+            follow = true;
+          };
+          "Gimp-2.10" = {
+            desktop = "9";
+            follow = true;
+          };
+          "rnote" = {
+            desktop = "9";
+            follow = true;
+          };
+          "*:*:Picture in picture" = {
+            #Google Chrome PIP
             state = "floating";
             sticky = true;
           };
-          "*:*:Picture-in-Picture" = {  #Firefox PIP
+          "*:*:Picture-in-Picture" = {
+            #Firefox PIP
             state = "floating";
             sticky = true;
           };
           "io.github.alainm23.planify" = {
             desktop = "10";
-            follow= true;
+            follow = true;
           };
           "mpv" = {
             desktop = "10";
-            follow= true;
+            follow = true;
           };
-      };
+          "obsidian" = {
+            desktop = "10";
+            follow = true;
+          };
+          "Anki" = {
+            desktop = "10";
+            follow = true;
+          };
+        };
         extraConfig = extraConf;
       };
     };

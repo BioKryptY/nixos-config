@@ -10,14 +10,19 @@
 #       └─ ./services
 #           └─ default.nix
 #
-
-{ config, lib, pkgs, unstable, user, ... }:
-
-{ 
-  imports =                                   # Home Manager Modules
-    (import ../modules/editors) ++
-    (import ../modules/programs) ++
-    (import ../modules/services);
+{
+  config,
+  lib,
+  pkgs,
+  unstable,
+  user,
+  ...
+}: {
+  imports =
+    # Home Manager Modules
+    (import ../modules/editors)
+    ++ (import ../modules/programs)
+    ++ (import ../modules/services);
 
   home = {
     username = "${user}";
@@ -25,32 +30,32 @@
 
     packages = with pkgs; [
       # Terminal
-      btop              # Resource Manager
-      ranger            # File Manager
-      tldr              # Helper
+      btop # Resource Manager
+      ranger # File Manager
+      tldr # Helper
 
       # Video/Audio
-      feh               # Image Viewer
-      mpv               # Media Player
-      pavucontrol       # Audio Control
+      feh # Image Viewer
+      mpv # Media Player
+      pavucontrol # Audio Control
       #plex-media-player # Media Player
-      vlc               # Media Player
+      vlc # Media Player
       #stremio           # Media Streamer
 
       # Apps
-      appimage-run      # Runs AppImages on NixOS
-      firefox           # Browser
+      appimage-run # Runs AppImages on NixOS
+      #firefox           # Browser
       #google-chrome     # Browser
       #remmina           # XRDP & VNC Client
 
       # File Management
       gnome.file-roller # Archive Manager
-      okular            # PDF Viewer
-      p7zip             # Zip Encryption
-      rsync             # Syncer - $ rsync -r dir1/ dir2/
-      unzip             # Zip Files
-      unrar             # Rar Files
-      zip               # Zip
+      okular # PDF Viewer
+      p7zip # Zip Encryption
+      rsync # Syncer - $ rsync -r dir1/ dir2/
+      unzip # Zip Files
+      unrar # Rar Files
+      zip # Zip
 
       # General configuration
       #alsa-utils	# Audio Commands
@@ -112,8 +117,8 @@
       #ansible          # Automation
       #blueman          # Bluetooth
       #deluge           # Torrents
-      discord          # Chat
-      ffmpeg           # Video Support (dslr)
+      discord # Chat
+      ffmpeg # Video Support (dslr)
       #gmtp             # Mount MTP (GoPro)
       #gphoto2          # Digital Photography
       #handbrake        # Encoder
@@ -127,7 +132,7 @@
       #steam            # Games
       #simple-scan      # Scanning
       #sshpass          # Ansible dependency
-      # 
+      #
       # Laptop
       #cbatticon        # Battery Notifications
       #blueman          # Bluetooth
@@ -149,21 +154,22 @@
       zoom-us
       spotify
       teams
-     unstable.planify
+      unstable.planify
       geany
       clang-tools
       gcc
       # Flatpak
-      obs-studio       # Recording/Live Streaming
+      obs-studio # Recording/Live Streaming
     ];
     file.".config/wall".source = ../modules/themes/wall;
     file.".config/wall.mp4".source = ../modules/themes/wall.mp4;
-   pointerCursor = {                         # This will set cursor system-wide so applications can not choose their own
+    pointerCursor = {
+      # This will set cursor system-wide so applications can not choose their own
       gtk.enable = true;
       name = "Dracula-cursors";
-     # name = "Catppuccin-Mocha-Dark-Cursors";
+      # name = "Catppuccin-Mocha-Dark-Cursors";
       package = pkgs.dracula-theme;
-     # package = pkgs.catppuccin-cursors.mochaDark;
+      # package = pkgs.catppuccin-cursors.mochaDark;
       size = 16;
     };
     stateVersion = "22.05";
@@ -176,8 +182,8 @@
     };
   };
 
-
-  gtk = {                                     # Theming
+  gtk = {
+    # Theming
     enable = true;
     theme = {
       #name = "Dracula";
@@ -196,13 +202,14 @@
     font = {
       #name = "JetBrains Mono Medium";
       name = "FiraCode Nerd Font Mono Medium";
-    };                                        # Cursor is declared under home.pointerCursor
+    }; # Cursor is declared under home.pointerCursor
   };
 
-  systemd.user.targets.tray = {               # Tray.target can not be found when xsession is not enabled. This fixes the issue.
+  systemd.user.targets.tray = {
+    # Tray.target can not be found when xsession is not enabled. This fixes the issue.
     Unit = {
       Description = "Home Manager System Tray";
-      Requires = [ "graphical-session-pre.target" ];
+      Requires = ["graphical-session-pre.target"];
     };
   };
 }

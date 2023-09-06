@@ -15,39 +15,49 @@
 #       └─ ./hardware
 #           └─ default.nix
 #
-
-{ config, pkgs, user, ... }:
-
 {
-  imports =                                               # For now, if applying to other system, swap files
-    [(import ./hardware-configuration.nix)] ++            # Current system hardware config @ /etc/nixos/hardware-configuration.nix
-    [(import ../../modules/desktop/bspwm/default.nix)] ++ # Window Manager
-    [(import ../../modules/desktop/virtualisation/docker.nix)] ++  # Docker
-    [(import ../../modules/programs/games.nix)] ++
-    [(import ../../modules/programs/flatpak.nix)] ++
-    (import ../../modules/hardware);                      # Hardware devices
+  config,
+  pkgs,
+  user,
+  ...
+}: {
+  imports =
+    # For now, if applying to other system, swap files
+    [(import ./hardware-configuration.nix)]
+    ++ # Current system hardware config @ /etc/nixos/hardware-configuration.nix
+    [(import ../../modules/desktop/bspwm/default.nix)]
+    ++ # Window Manager
+    [(import ../../modules/desktop/virtualisation/docker.nix)]
+    ++ # Docker
+    [(import ../../modules/programs/games.nix)]
+    ++ [(import ../../modules/programs/flatpak.nix)]
+    ++ (import ../../modules/hardware); # Hardware devices
 
-  boot = {                                  # Boot options
+  boot = {
+    # Boot options
     kernelPackages = pkgs.linuxPackages_latest;
-    loader = {                              # EFI Boot
+    loader = {
+      # EFI Boot
       efi = {
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot";
       };
-      grub = {                              # Most of grub is set up for dual boot
+      grub = {
+        # Most of grub is set up for dual boot
         enable = true;
-        devices = [ "nodev" ];
+        devices = ["nodev"];
         efiSupport = true;
-        useOSProber = true;                 # Find all boot options
+        useOSProber = true; # Find all boot options
         configurationLimit = 10;
       };
-      timeout = 1;                          # Grub auto select time
+      timeout = 1; # Grub auto select time
     };
   };
 
-  hardware.sane = {                         # Used for scanning with Xsane
+  hardware.sane = {
+    # Used for scanning with Xsane
     enable = true;
-    extraBackends = [ pkgs.sane-airscan ];
+    extraBackends = [pkgs.sane-airscan];
   };
 
   environment = {
@@ -56,24 +66,29 @@
     ];
   };
 
-  programs = {                              # No xbacklight, this is the alterantive
+  programs = {
+    # No xbacklight, this is the alterantive
     dconf.enable = true;
     light.enable = true;
   };
 
   services = {
-    tlp.enable = true;                      # TLP and auto-cpufreq for power management
+    xserver.wacom.enable = true;
+    tlp.enable = true; # TLP and auto-cpufreq for power management
     #logind.lidSwitch = "ignore";           # Laptop does not go to sleep when lid is closed
     auto-cpufreq.enable = true;
     blueman.enable = true;
-    printing = {                            # Printing and drivers for TS5300
+    printing = {
+      # Printing and drivers for TS5300
       enable = true;
-      drivers = [ pkgs.hplip ];
+      drivers = [pkgs.hplip];
     };
-    avahi = {                               # Needed to find wireless printer
+    avahi = {
+      # Needed to find wireless printer
       enable = true;
       nssmdns = true;
-      publish = {                           # Needed for detecting the scanner
+      publish = {
+        # Needed for detecting the scanner
         enable = true;
         addresses = true;
         userServices = true;

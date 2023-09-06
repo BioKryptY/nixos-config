@@ -31,7 +31,7 @@
   };
   security.sudo.wheelNeedsPassword = false; # User does not need to give password when using sudo.
 
-  time.timeZone = "America/Sao_Paulo"; # Time zone and internationalisation
+  time.timeZone = "America/Bahia"; # Time zone and internationalisation
   i18n = {
     defaultLocale = "pt_BR.UTF-8";
     extraLocaleSettings = {
@@ -91,6 +91,10 @@
       fzf
       pciutils
       pulseaudio
+      udisks
+      udiskie
+      xf86_input_wacom
+      libwacom
       ripgrep
       socat
       usbutils
@@ -108,6 +112,9 @@
       sad
       gnumake
       cmake
+      libftdi
+      arduino-ci
+      fritzing
     ];
   };
 
@@ -125,6 +132,8 @@
   };
 
   services = {
+    localtimed.enable = true;
+    automatic-timezoned.enable = true;
     tumbler.enable = true;
     printing = {
       # Printing and drivers for TS5300

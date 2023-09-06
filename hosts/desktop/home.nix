@@ -10,19 +10,20 @@
 #           └─ ./bspwm
 #              └─ home.nix
 #
-
-{ pkgs, ... }:
-
 {
-  imports =
-    [
-      ../../modules/desktop/bspwm/home.nix # Window Manager
-    ];
+  pkgs,
+  lib,
+  ...
+}: {
+  imports = [
+    ../../modules/desktop/bspwm/home.nix # Window Manager
+  ];
 
-  home = {                                # Specific packages for laptop
+  home = {
+    # Specific packages for laptop
     packages = with pkgs; [
       # Applications
-      libreoffice                         # Office packages
+      libreoffice # Office packages
 
       # Display
       #light                              # xorg.xbacklight not supported. Other option is just use xrandr.
@@ -34,6 +35,13 @@
   };
 
   programs = {
+    chromium = {
+      enable = true;
+      package = pkgs.ungoogled-chromium;
+      extensions = [
+        {id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";}
+      ];
+    };
     alacritty.settings.font.size = 12;
     git = {
       userName = "Lucas Fernandes";
@@ -41,13 +49,14 @@
     };
   };
 
-  services = {                            # Applets
+  services = {
+    # Applets
     network-manager-applet.enable = true; # Network
-#   cbatticon = {
-#     enable = true;
-#     criticalLevelPercent = 10;
-#     lowLevelPercent = 20;
-#     iconType = null;
-#   };
+    #   cbatticon = {
+    #     enable = true;
+    #     criticalLevelPercent = 10;
+    #     lowLevelPercent = 20;
+    #     iconType = null;
+    #   };
   };
 }
