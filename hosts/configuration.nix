@@ -25,7 +25,7 @@
   users.users.${user} = {
     # System User
     isNormalUser = true;
-    extraGroups = ["wheel" "video" "audio" "camera" "networkmanager" "lp" "scanner" "kvm" "libvirtd" "plex"];
+    extraGroups = ["dialout" "wheel" "video" "audio" "camera" "networkmanager" "lp" "scanner" "kvm" "libvirtd" "plex"];
     shell = pkgs.zsh; # Default shell
     initialHashedPassword = "8c796140427f0a288eda904c3a233c96363e975518c8ffd62ab4d650c28a618200512b71cdbdeae06cc6e3474657397e7f538621686b7cd8e9a4da3e04fdff82";
   };
@@ -113,8 +113,11 @@
       gnumake
       cmake
       libftdi
+      arduino
       arduino-ci
       fritzing
+      screen
+      time
     ];
   };
 
