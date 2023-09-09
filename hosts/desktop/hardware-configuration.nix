@@ -28,6 +28,16 @@
     fsType = "vfat";
   };
 
+  fileSystems."/HDD" = {
+    device = "/dev/disk/by-label/hdd";
+    fsType = "ext4";
+  };
+
+  fileSystems."/SSD" = {
+    device = "/dev/disk/by-label/ssd";
+    fsType = "ext4";
+  };
+
   swapDevices = [
     {
       device = "/dev/disk/by-uuid/c96aafb9-1425-436d-ac1d-44e38536c2c8";

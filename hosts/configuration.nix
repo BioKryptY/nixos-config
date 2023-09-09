@@ -117,6 +117,12 @@
       fritzing
       screen
       time
+      gvfs
+      xfce.exo
+      libgudev
+      intltool
+      perl
+      xfce.xfconf
     ];
   };
 
@@ -134,6 +140,7 @@
   };
 
   services = {
+    gvfs.enable = true;
     localtimed.enable = true;
     automatic-timezoned.enable = true;
     tumbler.enable = true;
