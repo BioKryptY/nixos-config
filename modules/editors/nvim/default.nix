@@ -267,7 +267,9 @@
           type = "lua";
           config = ''
             vim.keymap.set('n', '<leader>/', "<cmd>:ChatGPT<cr>" )
-            require('chatgpt').setup {}
+            require("chatgpt").setup({
+                api_key_cmd = "cat ~/.key.env"
+            })
           '';
         }
         {
@@ -283,7 +285,7 @@
           config = ''
             vim.api.nvim_set_keymap('t', '<esc>', '<C-\\><C-n>', {noremap = true, silent = true})
               vim.keymap.set('n', '<leader>tt', "<cmd>:ToggleTerm <cr>" )
-              require('toggleterm').setup {}
+              require('toggleterm').setup{}
           '';
         }
         {
@@ -315,9 +317,9 @@
           au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
         endif
 
-        au FileType nix setlocal tabstop=2 shiftwidth=2
-        au FileType cpp setlocal tabstop=2 shiftwidth=2
-        au FileType c setlocal tabstop=2 shiftwidth=2
+        au FileType nix setlocal tabstop=4 shiftwidth=2
+        au FileType cpp setlocal tabstop=4 shiftwidth=4
+        au FileType c setlocal tabstop=4 shiftwidth=4
 
         highlight Comment cterm=italic gui=italic " Comments become italic
         hi Normal guibg=NONE ctermbg=NONE         " Remove background, better for personal theme

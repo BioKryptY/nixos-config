@@ -102,7 +102,6 @@
       pipewire
       libcamera
       wget
-      gromit-mpx
       git-crypt
       gnupg
       pinentry

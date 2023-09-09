@@ -21,6 +21,12 @@
         ];
       };
 
+      shellAliases = {
+        c = ". ~/Development/createC.sh";
+        cpp = ". ~/Development/createCPP.sh";
+        lg = "lazygit";
+      };
+
       shellInit = ''                            # Zsh theme
         # Spaceship
         source ${pkgs.spaceship-prompt}/share/zsh/site-functions/prompt_spaceship_setup

@@ -15,15 +15,14 @@
         keybindings = {
           # Apps
           "super + Return" = "alacritty"; # Open Terminal
+          "super + w" = "chromium";
           "super + space" = "rofi -show drun"; # Open Rofi (custom theme " -theme theme.rasi")
           "super + e" = "thunar"; # File Manager
-          "super + ." = "digital";
-          "alt + g" = "alacritty lazygit";
 
           "Print" = "flameshot gui"; # Start flameshot gui
 
           # Bspwm
-          "super + {q,k}" = "bspc node -{c,k}"; # Close or Kill
+          "super + q" = "bspc node -c"; # Close or Kill
           "super + Escape" = "bspc quit"; # Exit WM
           "super + r" = "bspc wm -r"; # Reload WM
 

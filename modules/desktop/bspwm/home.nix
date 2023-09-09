@@ -54,7 +54,7 @@
     xsetwacom set 18 Button 3 "key +shift F9 -shift"
 
     #xsetroot -xcf /usr/share/icons/Dracula-theme/cursors/letf_ptr 16
-    gromit-mpx &
+    gromit-mpx & >/dev/null 2>&1
     polybar main & #2>~/log &               # To lazy to figure out systemd service order
     polybar sec & #2>~/log &
   '';
@@ -100,6 +100,9 @@ in {
             sticky = true;
             desktop = "1";
           };
+          "gromit-mpx" = {
+            desktop = "11";
+          };
           "Pavucontrol" = {
             state = "floating";
             sticky = true;
@@ -107,6 +110,10 @@ in {
           };
           "Alacritty" = {
             desktop = "1";
+            follow = true;
+          };
+          "rnote" = {
+            desktop = "9";
             follow = true;
           };
           "gnome-calculator" = {
@@ -209,7 +216,23 @@ in {
             desktop = "7";
             follow = true;
           };
-          "microsoft teams - preview" = {
+          "libreoffice-writer" = {
+            desktop = "7";
+            follow = true;
+          };
+          "libreoffice-calc" = {
+            desktop = "7";
+            follow = true;
+          };
+          "libreoffice-draw" = {
+            desktop = "7";
+            follow = true;
+          };
+          "libreoffice-impress" = {
+            desktop = "7";
+            follow = true;
+          };
+          "Microsoft Teams - Preview" = {
             desktop = "8";
             follow = true;
           };
@@ -242,10 +265,6 @@ in {
             follow = true;
           };
           "Gimp-2.10" = {
-            desktop = "9";
-            follow = true;
-          };
-          "rnote" = {
             desktop = "9";
             follow = true;
           };

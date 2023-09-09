@@ -149,7 +149,7 @@
       aichat
       neofetch
       vscode-with-extensions
-      #gromit-mpx
+      gromit-mpx
       qutebrowser
       zoom-us
       spotify
