@@ -118,11 +118,7 @@
       screen
       time
       gvfs
-      xfce.exo
-      libgudev
-      intltool
-      perl
-      xfce.xfconf
+      sublime
     ];
   };
 
