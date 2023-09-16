@@ -22,8 +22,9 @@
       };
 
       shellAliases = {
-        c = ". ~/Development/createC.sh";
-        cpp = ". ~/Development/createCPP.sh";
+        c = ". /HDD/Dev/createC.sh";
+        co = "function test(){ vim /HDD/Dev/C/Beecrowd/\"$1\"/\"$1\".c; }; test";
+        cpp = ". /HDD/Dev/createCPP.sh";
         lg = "lazygit";
       };
 

@@ -20,6 +20,7 @@
         "com.getpostman.Postman"
         "io.freetubeapp.FreeTube"
         "cc.arduino.IDE2"
+        "org.winehq.Wine"
       )
 
       ${pkgs.flatpak}/bin/flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo

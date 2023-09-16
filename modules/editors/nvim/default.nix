@@ -110,7 +110,8 @@
                         command = "${pkgs.beautysh}/bin/beautysh"
                     }),
                     null_ls.builtins.formatting.clang_format.with({
-                        command = "${pkgs.clang-tools}/bin/clang-format"
+                      command = "${pkgs.clang-tools}/bin/clang-format",
+                      extra_args = {"-style=file:/home/lucasf/.config/nvim/.clang-format"},
                     })
                 },
 
@@ -332,8 +333,7 @@
 
         nmap <F6> :NeoTreeShowToggle<CR>             " F6 open NeoTreeShowToggle
         au FileType cpp nmap <leader>r :w<CR>:TermExec cmd="g++ -o %:r % -std=c++17 && ./%:r"<cr><C-j>i
-        au FileType c nmap <leader>r :w<CR>:TermExec cmd="gcc -o %:r % -std=c17 && ./%:r"<cr><C-j>i
-
+        au FileType c nmap <leader>r :w<CR>:TermExec cmd="gcc -lm -o %:r % && ./%:h/%:t:r"<cr><C-j>i
       '';
     };
   };

@@ -57,7 +57,7 @@
   hardware.sane = {
     # Used for scanning with Xsane
     enable = true;
-    extraBackends = [pkgs.sane-airscan];
+    extraBackends = [pkgs.hplipWithPlugin];
   };
 
   environment = {

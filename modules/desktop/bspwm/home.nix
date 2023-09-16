@@ -112,10 +112,6 @@ in {
             desktop = "1";
             follow = true;
           };
-          "rnote" = {
-            desktop = "9";
-            follow = true;
-          };
           "gnome-calculator" = {
             desktop = "1";
             follow = true;
@@ -169,6 +165,10 @@ in {
             follow = true;
           };
           "steam" = {
+            desktop = "5";
+            follow = true;
+          };
+          "leagueclientux.exe" = {
             desktop = "5";
             follow = true;
           };
@@ -254,6 +254,10 @@ in {
           };
           "FreeTube" = {
             desktop = "9";
+            follow = true;
+          };
+          "rnote" = {
+            desktop = "1";
             follow = true;
           };
           "Inkscape" = {

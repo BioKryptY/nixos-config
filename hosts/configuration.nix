@@ -119,6 +119,7 @@
       time
       gvfs
       sublime
+      uncrustify
     ];
   };
 
