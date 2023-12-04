@@ -24,7 +24,6 @@
     packages = with pkgs; [
       # Applications
       libreoffice # Office packages
-
       # Display
       #light                              # xorg.xbacklight not supported. Other option is just use xrandr.
 

@@ -19,7 +19,7 @@
           "super + space" = "rofi -show drun"; # Open Rofi (custom theme " -theme theme.rasi")
           "super + e" = "thunar"; # File Manager
 
-          "Print" = "flameshot gui"; # Start flameshot gui
+          "control + super + p" = "flameshot gui"; # Start flameshot gui
 
           # Bspwm
           "super + q" = "bspc node -c"; # Close or Kill

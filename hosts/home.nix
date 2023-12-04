@@ -158,6 +158,8 @@
       geany
       clang-tools
       gcc
+      xournalpp
+      jetbrains.clion
       # Flatpak
       obs-studio # Recording/Live Streaming
     ];

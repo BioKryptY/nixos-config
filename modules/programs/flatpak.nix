@@ -21,6 +21,7 @@
         "io.freetubeapp.FreeTube"
         "cc.arduino.IDE2"
         "org.winehq.Wine"
+        "com.ktechpit.orion"
       )
 
       ${pkgs.flatpak}/bin/flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo

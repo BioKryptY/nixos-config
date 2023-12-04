@@ -44,14 +44,14 @@
     killall -q polybar &                    # Reboot polybar to correctly show workspaces
     while pgrep -u $UID -x polybar >/dev/null; do sleep 1;done
 
-    xsetwacom set 17 MapToOutput 1920x1080+1920+000000
-    xsetwacom set 18 MapToOutput 1920x1080+1920+000000
-    xsetwacom set 17 Area 0 0 15200 8550
-    xsetwacom set 18 Area 0 0 15200 8550
-    xsetwacom set 17 Button 2 "key F9"
-    xsetwacom set 17 Button 3 "key +shift F9 -shift"
-    xsetwacom set 18 Button 2 "key F9"
-    xsetwacom set 18 Button 3 "key +shift F9 -shift"
+    xsetwacom set "Wacom One by Wacom S Pen stylus" MapToOutput 1920x1080+1920+000000
+    xsetwacom set "Wacom One by Wacom S Pen eraser" MapToOutput 1920x1080+1920+000000
+    xsetwacom set "Wacom One by Wacom S Pen stylus" Area 0 0 15200 8550
+    xsetwacom set "Wacom One by Wacom S Pen eraser" Area 0 0 15200 8550
+    xsetwacom set "Wacom One by Wacom S Pen stylus" Button 2 "key F9"
+    xsetwacom set "Wacom One by Wacom S Pen stylus" Button 3 "key +shift F9 -shift"
+    xsetwacom set "Wacom One by Wacom S Pen eraser" Button 2 "key F9"
+    xsetwacom set "Wacom One by Wacom S Pen eraser" Button 3 "key +shift F9 -shift"
 
     #xsetroot -xcf /usr/share/icons/Dracula-theme/cursors/letf_ptr 16
     gromit-mpx & >/dev/null 2>&1

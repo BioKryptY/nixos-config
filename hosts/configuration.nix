@@ -93,6 +93,7 @@
       pulseaudio
       udisks
       udiskie
+      parted
       xf86_input_wacom
       libwacom
       ripgrep
